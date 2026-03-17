@@ -1,19 +1,23 @@
 <script setup>
 import { ref } from 'vue'
 
-// Configurações do WhatsApp
 const whatsappNumber = "5511999999999" // Coloque seu número aqui
 const defaultMessage = "Olá! Vim do site Central dos Assentos e gostaria de enviar a foto do meu vaso sanitário para vocês confirmarem o modelo exato para mim."
 const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`
 
-// Produtos REAIS extraídos da sua loja
+// Agora cada produto tem um Array (lista) de imagens
 const topSellers = ref([
   {
     id: 1,
     name: 'Assento Acrílico Transparente Thema (Incepa)',
     description: 'Resina poliéster virgem, ferragem reforçada e batentes em PVC flexível. Design incolor elegante.',
     price: 'R$ 276,20',
-    image: 'https://via.placeholder.com/400x400/ffffff/1E3A8A?text=Thema+Transparente', 
+    // Coloque as fotos desse produto aqui (ex: foto de frente, de lado, detalhe da dobradiça)
+    images: [
+      '/thema-1.png', 
+      '/thema-2.png',
+      '/thema-3.png'
+    ], 
     paymentLink: '#'
   },
   {
@@ -21,7 +25,11 @@ const topSellers = ref([
     name: 'Assento Decorado Borboleta Resina Incolor (Oval)',
     description: 'Peça artesanal exclusiva. As borboletas dão um toque único. Compatível com Deca, Icasa e Celite.',
     price: 'R$ 251,09',
-    image: 'https://via.placeholder.com/400x400/ffffff/1E3A8A?text=Borboleta+Incolor',
+    images: [
+      '/thema-1.png', 
+      '/thema-2.png',
+      '/thema-3.png'
+    ],
     paymentLink: '#'
   },
   {
@@ -29,7 +37,11 @@ const topSellers = ref([
     name: 'Assento Quadrado Bali Preto (Incepa)',
     description: 'Modelo quadrado específico para Incepa Bali. Dobradiças em aço garantem total segurança e estabilidade.',
     price: 'R$ 269,00', 
-    image: 'https://via.placeholder.com/400x400/ffffff/1E3A8A?text=Bali+Preto',
+    images: [
+      '/thema-1.png', 
+      '/thema-2.png',
+      '/thema-3.png'
+    ],
     paymentLink: '#'
   },
   {
@@ -37,7 +49,11 @@ const topSellers = ref([
     name: 'Assento Convencional Liso c/ Glitter Branco',
     description: 'Acabamento brilhante e alta durabilidade para vasos ovais. Renova o ambiente com muita sofisticação.',
     price: 'R$ 189,90', 
-    image: 'https://via.placeholder.com/400x400/ffffff/1E3A8A?text=Glitter+Branco',
+    images: [
+      '/thema-1.png', 
+      '/thema-2.png',
+      '/thema-3.png'
+    ],
     paymentLink: '#'
   },
   {
@@ -45,7 +61,11 @@ const topSellers = ref([
     name: 'Assento Decorado Mármore Ouro Dourado',
     description: 'Sofisticação máxima com textura marmorizada artesanal. Transforma o visual do banheiro.',
     price: 'R$ 299,00',
-    image: 'https://via.placeholder.com/400x400/ffffff/1E3A8A?text=Marmore+Ouro',
+    images: [
+      '/thema-1.png', 
+      '/thema-2.png',
+      '/thema-3.png'
+    ],
     paymentLink: '#'
   },
   {
@@ -53,10 +73,45 @@ const topSellers = ref([
     name: 'Assento Fit Celite Golfinho Areia Azul',
     description: 'Design temático de fundo do mar com areia e golfinhos. Resina de altíssima qualidade e resistência.',
     price: 'R$ 289,00',
-    image: 'https://via.placeholder.com/400x400/ffffff/1E3A8A?text=Golfinho+Areia',
+    images: [
+      '/thema-1.png', 
+      '/thema-2.png',
+      '/thema-3.png'
+    ],
     paymentLink: '#'
   }
 ])
+
+// ESTADO DA GALERIA (LIGHTBOX)
+const isGalleryOpen = ref(false)
+const activeProduct = ref(null)
+const activeImageIndex = ref(0)
+
+// Funções para controlar a galeria
+const openGallery = (product) => {
+  activeProduct.value = product
+  activeImageIndex.value = 0
+  isGalleryOpen.value = true
+  document.body.style.overflow = 'hidden' // Trava o scroll da página no fundo
+}
+
+const closeGallery = () => {
+  isGalleryOpen.value = false
+  activeProduct.value = null
+  document.body.style.overflow = 'auto' // Destrava o scroll
+}
+
+const nextImage = () => {
+  if (activeProduct.value) {
+    activeImageIndex.value = (activeImageIndex.value + 1) % activeProduct.value.images.length
+  }
+}
+
+const prevImage = () => {
+  if (activeProduct.value) {
+    activeImageIndex.value = (activeImageIndex.value - 1 + activeProduct.value.images.length) % activeProduct.value.images.length
+  }
+}
 </script>
 
 <template>
@@ -80,9 +135,7 @@ const topSellers = ref([
         <h3 class="text-xl font-bold text-yellow-400 mb-2">Não sabe qual é o seu modelo?</h3>
         <p class="text-blue-100 mb-4">A maioria das tampas não são universais. Envie uma foto do seu vaso sanitário para nós e indicamos a peça exata na hora!</p>
         <a :href="waLink" target="_blank" class="bg-green-500 hover:bg-green-600 transition-colors text-white font-bold py-3 px-6 rounded-lg shadow-lg flex items-center justify-center w-fit mx-auto gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.125-.397-.179-.974-.396-1.76-1.18-.783-.78-1.291-1.637-1.488-1.996-.197-.36-.021-.555.158-.733.161-.16.353-.414.53-.62.176-.206.236-.353.353-.588.118-.235.059-.441-.029-.618-.088-.176-.783-1.888-1.071-2.584-.282-.678-.567-.585-.773-.596-.197-.01-.423-.01-.649-.01-.225 0-.589.084-.897.418-.308.334-1.176 1.147-1.176 2.793s1.205 3.235 1.373 3.46c.167.225 2.36 3.593 5.713 5.039 2.261.974 3.033.856 3.555.733.522-.123 1.685-.688 1.921-1.353.236-.665.236-1.235.167-1.353-.069-.118-.285-.186-.62-.353z"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.125-.397-.179-.974-.396-1.76-1.18-.783-.78-1.291-1.637-1.488-1.996-.197-.36-.021-.555.158-.733.161-.16.353-.414.53-.62.176-.206.236-.353.353-.588.118-.235.059-.441-.029-.618-.088-.176-.783-1.888-1.071-2.584-.282-.678-.567-.585-.773-.596-.197-.01-.423-.01-.649-.01-.225 0-.589.084-.897.418-.308.334-1.176 1.147-1.176 2.793s1.205 3.235 1.373 3.46c.167.225 2.36 3.593 5.713 5.039 2.261.974 3.033.856 3.555.733.522-.123 1.685-.688 1.921-1.353.236-.665.236-1.235.167-1.353-.069-.118-.285-.186-.62-.353z"/></svg>
           Enviar foto do vaso no WhatsApp
         </a>
       </div>
@@ -103,8 +156,18 @@ const topSellers = ref([
             Frete Grátis
           </span>
 
-          <div class="overflow-hidden">
-             <img :src="product.image" :alt="product.name" class="w-full h-72 object-cover object-center bg-gray-200 group-hover:scale-105 transition-transform duration-300">
+          <div 
+            class="overflow-hidden relative cursor-pointer"
+            @click="openGallery(product)"
+            title="Clique para ver mais fotos"
+          >
+             <img :src="product.images[0]" :alt="product.name" class="w-full h-72 object-cover object-center bg-gray-200 group-hover:scale-105 transition-transform duration-300">
+             
+             <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/20 transition-colors duration-300 flex items-center justify-center">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                </svg>
+             </div>
           </div>
           
           <div class="p-6 flex flex-col flex-grow">
@@ -141,15 +204,44 @@ const topSellers = ref([
       </div>
     </section>
 
-    <a :href="waLink" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-transform z-50 flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-current" viewBox="0 0 24 24">
-        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.125-.397-.179-.974-.396-1.76-1.18-.783-.78-1.291-1.637-1.488-1.996-.197-.36-.021-.555.158-.733.161-.16.353-.414.53-.62.176-.206.236-.353.353-.588.118-.235.059-.441-.029-.618-.088-.176-.783-1.888-1.071-2.584-.282-.678-.567-.585-.773-.596-.197-.01-.423-.01-.649-.01-.225 0-.589.084-.897.418-.308.334-1.176 1.147-1.176 2.793s1.205 3.235 1.373 3.46c.167.225 2.36 3.593 5.713 5.039 2.261.974 3.033.856 3.555.733.522-.123 1.685-.688 1.921-1.353.236-.665.236-1.235.167-1.353-.069-.118-.285-.186-.62-.353z"/>
-      </svg>
-    </a>
-
     <footer class="bg-gray-900 text-gray-400 text-center py-8">
       <p>&copy; 2026 Central dos Assentos. Todos os direitos reservados.</p>
     </footer>
+
+    <div 
+      v-if="isGalleryOpen && activeProduct" 
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4"
+    >
+      <button @click="closeGallery" class="absolute top-6 right-6 text-white hover:text-red-500 transition-colors z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <button v-if="activeProduct.images.length > 1" @click="prevImage" class="absolute left-4 md:left-10 text-white/70 hover:text-white transition-colors z-50 bg-black/50 p-2 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <div class="relative max-w-4xl max-h-[85vh] flex flex-col items-center">
+        <img 
+          :src="activeProduct.images[activeImageIndex]" 
+          :alt="activeProduct.name" 
+          class="max-w-full max-h-[75vh] object-contain rounded-md shadow-2xl select-none"
+        >
+        <p class="text-white mt-4 text-center font-semibold text-lg">{{ activeProduct.name }}</p>
+        <p v-if="activeProduct.images.length > 1" class="text-gray-400 text-sm mt-1">
+          Foto {{ activeImageIndex + 1 }} de {{ activeProduct.images.length }}
+        </p>
+      </div>
+
+      <button v-if="activeProduct.images.length > 1" @click="nextImage" class="absolute right-4 md:right-10 text-white/70 hover:text-white transition-colors z-50 bg-black/50 p-2 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
     
   </div>
 </template>
