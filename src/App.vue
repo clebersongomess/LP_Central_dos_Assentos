@@ -5,22 +5,27 @@ const whatsappNumber = "5511945785565"
 const defaultMessage = "Olá! Vim do site Central dos Assentos e gostaria de enviar a foto do meu vaso sanitário para vocês confirmarem o modelo exato para mim."
 const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`
 
-// Lista de produtos atualizada
+// Marcas para o Slider
+const marcas = [
+  'Deca', 'Incepa', 'Celite', 'Icasa', 'Ideal Standard', 
+  'Logasa', 'Fiori', 'Roca', 'Hervy', 'Eternit', 'Lorenzetti'
+]
+
 const topSellers = ref([
   {
     id: 1,
-    name: 'Assento Acrílico Decorado Borboleta (Thema Incepa)',
+    name: 'Assento Acrílico Decorado Borboleta (Convencional)',
     description: 'Resina poliéster virgem, ferragem reforçada e batentes em PVC flexível. Design incolor elegante com elementos naturais.',
     price: 'R$ 276,20',
-    images: ['/thema-1.jpg', '/thema-2.jpg', '/thema-3.jpg'], 
+    images: ['/convencional-diagonal-rosa-01.jpeg', '/convencional-diagonal-rosa-02.jpeg', '/convencional-diagonal-rosa-03.jpeg'], 
     paymentLink: 'https://mpago.la/2M8YXe6'
   },
   {
     id: 2,
-    name: 'Assento Decorado Borboleta Resina Incolor (Oval)',
+    name: 'Assento Decorado Glitter Resina Rosa (Oval)',
     description: 'Peça artesanal exclusiva. As borboletas dão um toque único. Compatível com Deca, Icasa e Celite.',
     price: 'R$ 251,09',
-    images: ['/borboleta-oval.jpg'], 
+    images: ['/convencional-glitter-rosa-01.jpeg', '/convencional-glitter-rosa-02.jpeg'], 
     paymentLink: 'https://mpago.la/1MnJcxZ'
   },
   {
@@ -101,7 +106,7 @@ const prevImage = () => {
           <span>FRETE GRÁTIS EM TODOS OS PRODUTOS!</span>
         </div>
         <span class="text-[10px] md:text-xs font-medium opacity-90 bg-green-700/50 px-2 py-0.5 rounded-full">
-          Exceto regiões Norte e Centro-Oeste
+          *Exceto regiões Norte e Centro-Oeste
         </span>
       </div>
     </div>
@@ -112,44 +117,66 @@ const prevImage = () => {
         alt="Logo Central dos Assentos" 
         class="w-40 h-40 md:w-48 md:h-48 object-contain mx-auto mb-8 rounded-3xl shadow-2xl border-4 border-blue-800 bg-white p-2"
       >
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Central dos Assentos</h1>
-      <p class="text-lg md:text-xl text-blue-200 max-w-2xl mx-auto mb-8">
-        Peças de fábrica em resina poliéster virgem com o encaixe perfeito para o seu vaso.
+      <h1 class="text-4xl md:text-5xl font-bold mb-2 tracking-tight">Central dos Assentos</h1>
+      <p class="text-lg md:text-xl text-blue-200 max-w-2xl mx-auto mb-8 font-light">
+        Escolha o design que você ama. Nós fabricamos no <span class="text-white font-bold underline decoration-yellow-400">formato exato</span> do seu vaso.
       </p>
       
       <div class="bg-blue-800/50 p-6 rounded-xl max-w-3xl mx-auto border border-blue-700 mb-8">
-        <h3 class="text-xl font-bold text-yellow-400 mb-2">Dúvidas no modelo?</h3>
-        <p class="text-blue-100 mb-4 text-sm md:text-base">Envie uma foto do seu vaso no WhatsApp e confirmamos a tampa exata para você!</p>
-        <a :href="waLink" target="_blank" class="bg-green-500 hover:bg-green-600 transition-all hover:scale-105 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center justify-center w-fit mx-auto gap-2">
-          Enviar foto no WhatsApp
+        <h3 class="text-xl font-bold text-yellow-400 mb-2 font-sans">Como comprar o modelo correto?</h3>
+        <p class="text-blue-100 mb-4 text-sm md:text-base">Não se preocupe com marcas ou medidas. Basta nos enviar uma foto do seu vaso no WhatsApp que fabricamos a peça com o encaixe perfeito.</p>
+        <a :href="waLink" target="_blank" class="bg-green-500 hover:bg-green-600 transition-all hover:scale-105 text-white font-bold py-3 px-8 rounded-lg shadow-lg flex items-center justify-center w-fit mx-auto gap-2 no-underline">
+          Chamar no WhatsApp e enviar foto
         </a>
       </div>
     </header>
+
+    <section class="bg-blue-50 py-8 border-b border-blue-100">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <div class="inline-flex items-center justify-center p-2 bg-blue-100 rounded-full mb-4">
+          <span class="text-blue-700 text-xs font-bold uppercase px-3">Diferencial Único</span>
+        </div>
+        <h2 class="text-2xl font-bold text-blue-900 mb-3">Qualquer modelo, para qualquer vaso.</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Gostou de uma estampa mas seu vaso é de um modelo específico (como <strong>Thema, Bali, Monte Carlo ou Nexo</strong>)? <br class="hidden md:block" /> 
+          Nós fabricamos todos os nossos modelos decorados para <strong>todas as marcas do mercado.</strong>
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white border-b border-gray-200 py-6 overflow-hidden">
+      <div class="relative flex overflow-x-hidden">
+        <div class="animate-marquee whitespace-nowrap flex items-center">
+          <span v-for="marca in [...marcas, ...marcas]" :key="marca" class="mx-8 text-xl md:text-2xl font-black text-gray-200 uppercase">
+            {{ marca }}
+          </span>
+        </div>
+      </div>
+    </section>
 
     <main class="max-w-7xl mx-auto py-16 px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div v-for="product in topSellers" :key="product.id" class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border border-gray-100 flex flex-col group relative">
           
-          <span class="absolute top-4 left-4 bg-green-500 text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-1 rounded shadow-md z-10 flex items-center gap-1">
+          <span class="absolute top-4 left-4 bg-green-500 text-white text-[10px] font-extrabold uppercase tracking-wider px-2 py-1 rounded shadow-md z-10">
             Frete Grátis*
           </span>
 
-          <div 
-            class="overflow-hidden relative cursor-pointer aspect-square"
-            @click="openGallery(product)"
-          >
+          <div class="overflow-hidden relative cursor-pointer aspect-square" @click="openGallery(product)">
              <img :src="product.images[0]" :alt="product.name" class="w-full h-full object-contain p-4 bg-white group-hover:scale-105 transition-transform duration-300">
              <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/5 transition-colors flex items-center justify-center">
-                <span class="bg-white/90 text-blue-900 px-4 py-2 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">Ver detalhes</span>
+                <span class="bg-white/90 text-blue-900 px-4 py-2 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">Ver fotos reais</span>
              </div>
           </div>
           
           <div class="p-6 flex flex-col flex-grow text-center">
-            <h3 class="text-lg font-bold text-gray-800 mb-2">{{ product.name }}</h3>
+            <h3 class="text-lg font-bold text-gray-800 mb-1 font-sans leading-tight">{{ product.name }}</h3>
+            <p class="text-[10px] text-blue-600 font-bold uppercase mb-3">✓ Fabricamos para qualquer marca</p>
+            
             <p class="text-gray-600 text-xs mb-6 flex-grow leading-relaxed">{{ product.description }}</p>
             <div class="mt-auto border-t border-gray-100 pt-4">
-              <span class="block text-2xl font-black text-blue-900 mb-4">{{ product.price }}</span>
-              <a :href="product.paymentLink" target="_blank" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-md transition-colors">
+              <span class="block text-2xl font-black text-blue-900 mb-4 font-sans">{{ product.price }}</span>
+              <a :href="product.paymentLink" target="_blank" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-md transition-colors no-underline">
                 Comprar Agora
               </a>
             </div>
@@ -158,12 +185,32 @@ const prevImage = () => {
       </div>
     </main>
 
+    <section class="bg-white py-12 border-t border-gray-200">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="p-4">
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">✓</div>
+          <h4 class="font-bold text-gray-800 font-sans">Ferragem Reforçada</h4>
+          <p class="text-sm text-gray-500 mt-2">Maior durabilidade e estabilidade.</p>
+        </div>
+        <div class="p-4">
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">★</div>
+          <h4 class="font-bold text-gray-800 font-sans">Resina Virgem</h4>
+          <p class="text-sm text-gray-500 mt-2">Acabamento premium artesanal.</p>
+        </div>
+        <div class="p-4">
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">🛡️</div>
+          <h4 class="font-bold text-gray-800 font-sans">Compra Garantida</h4>
+          <p class="text-sm text-gray-500 mt-2">Garantia total contra defeitos de fabricação.</p>
+        </div>
+      </div>
+    </section>
+
     <footer class="bg-gray-900 text-gray-400 text-center py-10 border-t-4 border-blue-900">
       <p class="text-sm">
         &copy; 2026 Central dos Assentos. Todos os direitos reservados.<br />
         Uma empresa do grupo <strong class="text-gray-200">CAG Assentos Sanitários</strong>.
       </p>
-      <p class="text-[10px] mt-4 opacity-50 max-w-md mx-auto px-4">
+      <p class="text-[10px] mt-4 opacity-50 max-w-md mx-auto px-4 italic">
         *A promoção de frete grátis é válida para as regiões Sul e Sudeste. Consulte condições para demais localidades no momento do checkout.
       </p>
     </footer>
@@ -172,11 +219,9 @@ const prevImage = () => {
       <button @click="closeGallery" class="absolute top-6 right-6 text-white hover:text-red-500 transition-colors z-50 p-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
-
       <button v-if="activeProduct.images.length > 1" @click="prevImage" class="absolute left-4 text-white hover:bg-white/20 transition-colors z-50 p-3 rounded-full">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7" /></svg>
       </button>
-
       <div class="relative max-w-4xl max-h-[85vh] flex flex-col items-center">
         <img :src="activeProduct.images[activeImageIndex]" class="max-w-full max-h-[75vh] object-contain rounded-md shadow-2xl bg-white p-2">
         <p class="text-white mt-6 text-center font-bold text-lg px-4">{{ activeProduct.name }}</p>
@@ -187,10 +232,26 @@ const prevImage = () => {
            </div>
         </div>
       </div>
-
       <button v-if="activeProduct.images.length > 1" @click="nextImage" class="absolute right-4 text-white hover:bg-white/20 transition-colors z-50 p-3 rounded-full">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7" /></svg>
       </button>
     </div>
   </div>
 </template>
+
+<style>
+/* Animação para o Slider de Marcas Infinito */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+/* Pausa ao passar o mouse para facilitar leitura se o usuário quiser */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+</style>
