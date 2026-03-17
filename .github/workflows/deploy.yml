@@ -1,38 +1,33 @@
 name: Deploy to Locaweb
 
-# Define que a Action vai rodar toda vez que houver um push na branch main
 on:
   push:
     branches:
-      - master # Se a sua branch principal for 'master', troque aqui.
+      - main # Se a sua branch principal for 'master', mude aqui.
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Pega o código atualizado do repositório
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2. Instala o Node.js para podermos rodar o Vite
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # 3. Instala as dependências e gera os arquivos otimizados para produção
-      - name: Build do Projeto (Vite)
+      - name: Instalar dependências e Build
         run: |
           npm install
           npm run build
 
-      # 4. Pega a pasta 'dist' gerada no passo anterior e envia via FTP
-      - name: FTP Deploy Locaweb
-        uses: isaque-toledo/ftp-deploy-locaweb@v1.0.1
+      - name: FTP Deploy para Locaweb
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: ./dist # Essencial: O Vite gera o site pronto aqui dentro
-          remote_dir: /public_html # Pasta raiz da sua hospedagem (ajuste se a Locaweb usar outra, como /web)
+          local-dir: ./dist/ # O Vite gera o site pronto aqui dentro (mantenha a barra no final)
+          server-dir: /public_html/ # Pasta raiz da sua hospedagem na Locaweb (mantenha a barra no final)
