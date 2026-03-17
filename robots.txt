@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://centraldosassentos.com.br/sitemap.xml
