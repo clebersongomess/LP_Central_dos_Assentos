@@ -185,22 +185,47 @@ const prevImage = () => {
       </div>
     </main>
 
-    <section class="bg-white py-12 border-t border-gray-200">
-      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        <div class="p-4">
-          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">✓</div>
-          <h4 class="font-bold text-gray-800 font-sans">Ferragem Reforçada</h4>
-          <p class="text-sm text-gray-500 mt-2">Maior durabilidade e estabilidade.</p>
-        </div>
-        <div class="p-4">
-          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">★</div>
-          <h4 class="font-bold text-gray-800 font-sans">Resina Virgem</h4>
-          <p class="text-sm text-gray-500 mt-2">Acabamento premium artesanal.</p>
-        </div>
-        <div class="p-4">
-          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">🛡️</div>
-          <h4 class="font-bold text-gray-800 font-sans">Compra Garantida</h4>
-          <p class="text-sm text-gray-500 mt-2">Garantia total contra defeitos de fabricação.</p>
+    <section class="bg-gray-100 py-8 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+          
+          <div class="flex items-center gap-4 group">
+            <div class="bg-yellow-400 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-900" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <div class="text-center md:text-left">
+              <h4 class="font-black text-gray-800 leading-tight">Mercado Líder</h4>
+              <p class="text-xs text-gray-500 uppercase tracking-tighter">Um dos melhores do site</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 group">
+            <div class="bg-orange-500 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+            <div class="text-center md:text-left">
+              <h4 class="font-black text-gray-800 leading-tight">Shopee Indica</h4>
+              <p class="text-xs text-gray-500 uppercase tracking-tighter">Vendedor de confiança</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 group">
+            <div class="bg-blue-900 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21v-9a4 4 0 1 1 8 0v9M13 21V3a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v18"/>
+                <path d="M3 7h18M3 11h18M3 15h18"/>
+              </svg>
+            </div>
+            <div class="text-center md:text-left">
+              <h4 class="font-black text-gray-800 leading-tight">Direto de Fábrica</h4>
+              <p class="text-xs text-gray-500 uppercase tracking-tighter">Grupo CAG Assentos</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
