@@ -1,18 +1,17 @@
 <script setup>
 import { ref } from 'vue'
 
-const whatsappNumber = "5511945785565" // Coloque seu número aqui
+const whatsappNumber = "5511945785565" // Seu número
 const defaultMessage = "Olá! Vim do site Central dos Assentos e gostaria de enviar a foto do meu vaso sanitário para vocês confirmarem o modelo exato para mim."
 const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`
 
-// Agora cada produto tem um Array (lista) de imagens
+// Lista de produtos com links de pagamento reais
 const topSellers = ref([
   {
     id: 1,
     name: 'Assento Acrílico Transparente Thema (Incepa)',
     description: 'Resina poliéster virgem, ferragem reforçada e batentes em PVC flexível. Design incolor elegante.',
     price: 'R$ 276,20',
-    // Coloque as fotos desse produto aqui (ex: foto de frente, de lado, detalhe da dobradiça)
     images: [
       '/thema-1.png', 
       '/thema-2.png',
@@ -87,18 +86,17 @@ const isGalleryOpen = ref(false)
 const activeProduct = ref(null)
 const activeImageIndex = ref(0)
 
-// Funções para controlar a galeria
 const openGallery = (product) => {
   activeProduct.value = product
   activeImageIndex.value = 0
   isGalleryOpen.value = true
-  document.body.style.overflow = 'hidden' // Trava o scroll da página no fundo
+  document.body.style.overflow = 'hidden' 
 }
 
 const closeGallery = () => {
   isGalleryOpen.value = false
   activeProduct.value = null
-  document.body.style.overflow = 'auto' // Destrava o scroll
+  document.body.style.overflow = 'auto' 
 }
 
 const nextImage = () => {
@@ -181,7 +179,7 @@ const prevImage = () => {
             <p class="text-gray-600 text-sm mb-6 flex-grow">{{ product.description }}</p>
             <div class="mt-auto border-t border-gray-100 pt-4">
               <span class="block text-3xl font-extrabold text-blue-900 mb-4">{{ product.price }}</span>
-              <a :href="product.paymentLink" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-colors shadow-md">
+              <a :href="product.paymentLink" target="_blank" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-colors shadow-md">
                 Comprar Agora
               </a>
             </div>
@@ -211,7 +209,7 @@ const prevImage = () => {
     </section>
 
     <footer class="bg-gray-900 text-gray-400 text-center py-8">
-      <p>&copy; 2026 Central dos Assentos. Todos os direitos reservados.<br />Um empresa do grupo CAG Assentos Sanitários.</p>
+      <p>&copy; 2026 Central dos Assentos. Todos os direitos reservados.<br />Uma empresa do grupo CAG Assentos Sanitários.</p>
     </footer>
 
     <div 
