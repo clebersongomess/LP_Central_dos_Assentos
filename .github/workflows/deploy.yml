@@ -3,7 +3,7 @@ name: Deploy to Locaweb
 on:
   push:
     branches:
-      - main # Se a sua branch principal for 'master', mude aqui.
+      - master # Se a sua branch principal for 'master', mude aqui.
 
 jobs:
   build-and-deploy:
