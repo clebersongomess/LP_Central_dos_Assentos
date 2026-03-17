@@ -111,6 +111,17 @@ const prevImage = () => {
       </div>
     </div>
 
+    <a :href="waLink" target="_blank" class="fixed bottom-6 right-6 z-[100] flex items-center group no-underline">
+      <span class="mr-3 bg-white text-gray-800 py-2 px-4 rounded-full shadow-xl text-sm font-bold border border-green-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block">
+        Precisa de ajuda com o modelo?
+      </span>
+      <div class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all hover:scale-110 relative flex items-center justify-center animate-subtle-pulse">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.125-.397-.179-.974-.396-1.76-1.18-.783-.78-1.291-1.637-1.488-1.996-.197-.36-.021-.555.158-.733.161-.16.353-.414.53-.62.176-.206.236-.353.353-.588.118-.235.059-.441-.029-.618-.088-.176-.783-1.888-1.071-2.584-.282-.678-.567-.585-.773-.596-.197-.01-.423-.01-.649-.01-.225 0-.589.084-.897.418-.308.334-1.176 1.147-1.176 2.793s1.205 3.235 1.373 3.46c.167.225 2.36 3.593 5.713 5.039 2.261.974 3.033.856 3.555.733.522-.123 1.685-.688 1.921-1.353.236-.665.236-1.235.167-1.353-.069-.118-.285-.186-.62-.353z"/>
+        </svg>
+      </div>
+    </a>
+
     <header class="bg-blue-900 text-white text-center py-12 px-4">
       <img 
         src="/logo-central-dos-assentos.png" 
@@ -176,7 +187,7 @@ const prevImage = () => {
             <p class="text-gray-600 text-xs mb-6 flex-grow leading-relaxed">{{ product.description }}</p>
             <div class="mt-auto border-t border-gray-100 pt-4">
               <span class="block text-2xl font-black text-blue-900 mb-4 font-sans">{{ product.price }}</span>
-              <a :href="product.paymentLink" target="_blank" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-md transition-colors no-underline">
+              <a :href="product.paymentLink" target="_blank" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-md transition-colors no-underline text-center">
                 Comprar Agora
               </a>
             </div>
@@ -188,12 +199,9 @@ const prevImage = () => {
     <section class="bg-gray-100 py-8 border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-          
           <div class="flex items-center gap-4 group">
-            <div class="bg-yellow-400 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-900" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
+            <div class="bg-yellow-400 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform text-blue-900">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
             <div class="text-center md:text-left">
               <h4 class="font-black text-gray-800 leading-tight">Mercado Líder</h4>
@@ -202,10 +210,8 @@ const prevImage = () => {
           </div>
 
           <div class="flex items-center gap-4 group">
-            <div class="bg-orange-500 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-              </svg>
+            <div class="bg-orange-500 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </div>
             <div class="text-center md:text-left">
               <h4 class="font-black text-gray-800 leading-tight">Shopee Indica</h4>
@@ -214,18 +220,14 @@ const prevImage = () => {
           </div>
 
           <div class="flex items-center gap-4 group">
-            <div class="bg-blue-900 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21v-9a4 4 0 1 1 8 0v9M13 21V3a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v18"/>
-                <path d="M3 7h18M3 11h18M3 15h18"/>
-              </svg>
+            <div class="bg-blue-900 p-3 rounded-full shadow-md group-hover:scale-110 transition-transform text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21v-9a4 4 0 1 1 8 0v9M13 21V3a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v18"/><path d="M3 7h18M3 11h18M3 15h18"/></svg>
             </div>
             <div class="text-center md:text-left">
               <h4 class="font-black text-gray-800 leading-tight">Direto de Fábrica</h4>
               <p class="text-xs text-gray-500 uppercase tracking-tighter">Grupo CAG Assentos</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -240,8 +242,8 @@ const prevImage = () => {
       </p>
     </footer>
 
-    <div v-if="isGalleryOpen && activeProduct" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4">
-      <button @click="closeGallery" class="absolute top-6 right-6 text-white hover:text-red-500 transition-colors z-50 p-2">
+    <div v-if="isGalleryOpen && activeProduct" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4">
+      <button @click="closeGallery" class="absolute top-6 right-6 text-white hover:text-red-500 transition-colors z-[120] p-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
       <button v-if="activeProduct.images.length > 1" @click="prevImage" class="absolute left-4 text-white hover:bg-white/20 transition-colors z-50 p-3 rounded-full">
@@ -275,8 +277,17 @@ const prevImage = () => {
   width: max-content;
   animation: marquee 30s linear infinite;
 }
-/* Pausa ao passar o mouse para facilitar leitura se o usuário quiser */
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Animação de pulso para o botão do WhatsApp */
+@keyframes subtle-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+.animate-subtle-pulse {
+  animation: subtle-pulse 2s infinite;
 }
 </style>
