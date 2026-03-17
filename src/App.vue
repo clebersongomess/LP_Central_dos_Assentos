@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const whatsappNumber = "5511999999999" // Coloque seu número aqui
+const whatsappNumber = "5511945785565" // Coloque seu número aqui
 const defaultMessage = "Olá! Vim do site Central dos Assentos e gostaria de enviar a foto do meu vaso sanitário para vocês confirmarem o modelo exato para mim."
 const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`
 
@@ -18,7 +18,7 @@ const topSellers = ref([
       '/thema-2.png',
       '/thema-3.png'
     ], 
-    paymentLink: '#'
+    paymentLink: 'https://mpago.la/2M8YXe6'
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const topSellers = ref([
       '/thema-2.png',
       '/thema-3.png'
     ],
-    paymentLink: '#'
+    paymentLink: 'https://mpago.la/1MnJcxZ'
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const topSellers = ref([
       '/thema-2.png',
       '/thema-3.png'
     ],
-    paymentLink: '#'
+    paymentLink: 'https://mpago.la/2iRiAKm'
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ const topSellers = ref([
       '/thema-2.png',
       '/thema-3.png'
     ],
-    paymentLink: '#'
+    paymentLink: 'https://mpago.la/1T8bxPb'
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ const topSellers = ref([
       '/thema-2.png',
       '/thema-3.png'
     ],
-    paymentLink: '#'
+    paymentLink: 'https://mpago.la/1vetgAN'
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const topSellers = ref([
       '/thema-2.png',
       '/thema-3.png'
     ],
-    paymentLink: '#'
+    paymentLink: 'https://mpago.la/1ewGUrY'
   }
 ])
 
@@ -205,7 +205,7 @@ const prevImage = () => {
     </section>
 
     <footer class="bg-gray-900 text-gray-400 text-center py-8">
-      <p>&copy; 2026 Central dos Assentos. Todos os direitos reservados.</p>
+      <p>&copy; 2026 Central dos Assentos. Todos os direitos reservados.<br />Um empresa do grupo CAG Assentos Sanitários.</p>
     </footer>
 
     <div 
