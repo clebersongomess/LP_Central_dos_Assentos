@@ -125,7 +125,13 @@ const prevImage = () => {
       PROMOÇÃO: Frete Grátis para todo o Estado de São Paulo!
     </div>
 
-    <header class="bg-blue-900 text-white text-center py-16 px-4">
+    <header class="bg-blue-900 text-white text-center py-12 px-4">
+      <img 
+        src="/logo-central-dos-assentos.png" 
+        alt="Logo Central dos Assentos" 
+        class="w-40 h-40 md:w-48 md:h-48 object-contain mx-auto mb-8 rounded-3xl shadow-2xl border-4 border-blue-800 bg-white"
+      >
+      
       <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Central dos Assentos</h1>
       <p class="text-lg md:text-xl text-blue-200 max-w-2xl mx-auto mb-8">
         O fim da dor de cabeça na hora de trocar a tampa da privada. Peças de fábrica em resina poliéster virgem com o encaixe perfeito para o seu vaso.
@@ -228,7 +234,7 @@ const prevImage = () => {
         <img 
           :src="activeProduct.images[activeImageIndex]" 
           :alt="activeProduct.name" 
-          class="max-w-full max-h-[75vh] object-contain rounded-md shadow-2xl select-none"
+          class="max-w-full max-h-[75vh] object-contain rounded-md shadow-2xl select-none bg-white/5"
         >
         <p class="text-white mt-4 text-center font-semibold text-lg">{{ activeProduct.name }}</p>
         <p v-if="activeProduct.images.length > 1" class="text-gray-400 text-sm mt-1">
