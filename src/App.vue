@@ -16,7 +16,7 @@ const topSellers = ref([
     id: 1,
     name: 'Assento Acrílico Decorado Borboleta (Convencional)',
     description: 'Resina poliéster virgem, ferragem reforçada e batentes em PVC flexível. Design incolor elegante com elementos naturais.',
-    price: 'R$ 276,20',
+    price: 'R$ 279,99',
     images: ['/convencional-diagonal-rosa-01.jpeg', '/convencional-diagonal-rosa-02.jpeg', '/convencional-diagonal-rosa-03.jpeg'], 
     paymentLink: 'https://mpago.la/2M8YXe6'
   },
@@ -24,40 +24,40 @@ const topSellers = ref([
     id: 2,
     name: 'Assento Decorado Glitter Resina Rosa (Oval)',
     description: 'Peça artesanal exclusiva. As borboletas dão um toque único. Compatível com Deca, Icasa e Celite.',
-    price: 'R$ 251,09',
+    price: 'R$ 356,99',
     images: ['/convencional-glitter-rosa-01.jpeg', '/convencional-glitter-rosa-02.jpeg'], 
     paymentLink: 'https://mpago.la/1MnJcxZ'
   },
   {
     id: 3,
-    name: 'Assento Quadrado Bali Preto (Incepa)',
-    description: 'Modelo quadrado específico para Incepa Bali. Dobradiças em aço garantem total segurança e estabilidade.',
-    price: 'R$ 269,00', 
-    images: ['/bali-preto.jpg'],
+    name: 'Assento Sabatini Laranja (Icasa)',
+    description: 'Modelo específico para Icasa Sabatini. Dobradiças em aço garantem total segurança e estabilidade.',
+    price: 'R$ 304,43', 
+    images: ['/sabatini-laranja-01.png', 'sabatini-laranja-02.png', 'sabatini-laranja-03.png'],
     paymentLink: 'https://mpago.la/2iRiAKm'
   },
   {
     id: 4,
-    name: 'Assento Convencional Liso c/ Glitter Branco',
+    name: 'Assento Convencional Decorado Tampas de Cerveja',
     description: 'Acabamento brilhante e alta durabilidade para vasos ovais. Renova o ambiente com muita sofisticação.',
-    price: 'R$ 189,90', 
-    images: ['/glitter-branco.jpg'],
+    price: 'R$ 499,99', 
+    images: ['/convencional-cerveja-01.png', 'convencional-cerveja-02.png', 'convencional-cerveja-03.png'],
     paymentLink: 'https://mpago.la/1T8bxPb'
   },
   {
     id: 5,
-    name: 'Assento Decorado Mármore Ouro Dourado',
-    description: 'Sofisticação máxima com textura marmorizada artesanal. Transforma o visual do banheiro.',
-    price: 'R$ 299,00',
-    images: ['/marmore-ouro.jpg'],
+    name: 'Assento Decorado Belle Epoque Verde Tanslúcido',
+    description: 'Sofisticação máxima com decoração praia. Transforma o visual do banheiro.',
+    price: 'R$ 355,99',
+    images: ['/belle-epoque-verde-01.png', 'belle-epoque-verde-02.png', 'belle-epoque-verde-03.png'],
     paymentLink: 'https://mpago.la/1vetgAN'
   },
   {
     id: 6,
-    name: 'Assento Fit Celite Golfinho Areia Azul',
-    description: 'Design temático de fundo do mar com areia e golfinhos. Resina de altíssima qualidade e resistência.',
-    price: 'R$ 289,00',
-    images: ['/golfinho-areia.jpg'],
+    name: 'Assento Incepa Calypso Verde Mármore',
+    description: 'Design efeito mármore na cor verde. Resina de altíssima qualidade e resistência.',
+    price: 'R$ 405,72',
+    images: ['/incepa-calypso-verde-01.png', 'incepa-calypso-verde-02.png', 'incepa-calypso-verde-03.png', 'incepa-calypso-verde-04.png'],
     paymentLink: 'https://mpago.la/1ewGUrY'
   }
 ])
